@@ -1,0 +1,265 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Toggler</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-wrpr">
+        <div class="page-center">
+          <div class="logo-wrpr">
+            <div class="light-theme-logo">
+              <a href="#">
+                <img
+                  src="https://img.freepik.com/free-vector/black-vintage-halftone-badge-beige-background-vector_53876-67256.jpg?w=826&t=st=1680945666~exp=1680946266~hmac=d877926a94f2a9ebc6695a4415cb6715202e43d2e1499cbbc9a81ed5be436c1a"
+                />
+              </a>
+            </div>
+            <div class="dark-theme-logo">
+              <a href="#">
+                <img
+                  src="https://img.freepik.com/free-vector/green-orange-halftone-badge_53876-64011.jpg?w=826&t=st=1680945675~exp=1680946275~hmac=e2512b7e02af62ed03bd52da8ecfa8206fd9a24b520d7681e07ab543bce331f1"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="menu-wrpr">
+            <nav class="sitemap">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="theme-toggler-wrpr">
+            <div class="check-box">
+              <input
+                id="theme-toggler"
+                onclick="onThemeToggler()"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="banner-section">
+        <div class="page-center">
+          <h1>Building a theme switch component</h1>
+        </div>
+      </section>
+      <section class="description">
+        <div class="page-center">
+          <p>
+            A website may provide settings for controlling the color scheme
+            instead of relying entirely on the system preference. This means
+            that users may browse in a mode other than their system preferences.
+            For example, a user's system is in a light theme, but the user
+            prefers the website to display in the dark theme.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="page-center">
+        <p>&copy; Copyright 2023 HTML.am</p>
+      </div>
+    </footer>
+  </body>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Poppins, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #181b2a;
+      background-color: #f8f0dc;
+    }
+
+    .page-center {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: #181b2a;
+      text-decoration: none;
+      transition: all 0.2s ease-in;
+    }
+
+    a:hover {
+      color: #181b2a;
+    }
+
+    .header-wrpr {
+      background-color: #f8f0dc;
+    }
+
+    .header-wrpr .page-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-wrpr .logo-wrpr,
+    .header-wrpr .theme-toggler-wrpr {
+      width: 10%;
+    }
+
+    .header-wrpr .menu-wrpr {
+      width: 80%;
+    }
+
+    .header-wrpr .menu-wrpr nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+
+    .header-wrpr .menu-wrpr nav ul li a {
+      font-weight: 500;
+    }
+
+    .header-wrpr .theme-toggler-wrpr .check-box {
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-wrpr .logo-wrpr .dark-theme-logo {
+      display: none;
+    }
+
+    input[type="checkbox"] {
+      position: relative;
+      width: 80px;
+      height: 40px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #181b2a;
+      outline: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      box-shadow: inset 0 0 5px rgb(0 0 0 / 50%);
+    }
+
+    input[type="checkbox"]::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.5s;
+    }
+
+    input[type="checkbox"]:checked::before {
+      transform: translateX(100%);
+      background: #fff;
+    }
+
+    input[type="checkbox"]:checked {
+      background: #f8f0dc;
+    }
+
+    section.banner-section {
+      background: #181b2a;
+      min-height: 75vh;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    section.banner-section h1 {
+      text-align: center;
+      color: #f8f0dc;
+      font-size: 50px;
+    }
+
+    section.description {
+      text-align: center;
+    }
+
+    footer {
+      background: #f8f0dc;
+      padding: 20px 0;
+    }
+
+    footer p {
+      margin: 0;
+      text-align: center;
+    }
+  </style>
+  <!-- <script src="script.js"></script> -->
+  <script>
+    function onThemeToggler() {
+      let checkbox = document.getElementById("theme-toggler");
+      let body = document.getElementsByTagName("body")[0];
+      let header = document.getElementsByClassName("header-wrpr")[0];
+      let anchor = document.querySelectorAll(
+        ".header-wrpr .menu-wrpr nav ul li a"
+      );
+      let darklogo = document.getElementsByClassName("dark-theme-logo")[0];
+      let lightlogo = document.getElementsByClassName("light-theme-logo")[0];
+      let banner = document.getElementsByClassName("banner-section")[0];
+      let heading = document.getElementsByTagName("h1")[0];
+      let paragraph = document.querySelector("section.description p");
+      let footer = document.getElementsByTagName("footer")[0];
+      let copyright = document.querySelector("footer p");
+      if (checkbox.checked) {
+        body.style.backgroundColor = "#181b2a";
+        header.style.backgroundColor = "#181b2a";
+        anchor.forEach((anchor) => {
+          anchor.style.color = "#f8f0dc";
+        });
+        darklogo.style.display = "block";
+        lightlogo.style.display = "none";
+        banner.style.backgroundColor = "#f8f0dc";
+        heading.style.color = "#181b2a";
+        paragraph.style.color = "#f8f0dc";
+        footer.style.backgroundColor = "#181b2a";
+        copyright.style.color = "#f8f0dc";
+      } else {
+        body.style.backgroundColor = "#f8f0dc";
+        header.style.backgroundColor = "#f8f0dc";
+        anchor.forEach((anchor) => {
+          anchor.style.color = "#181b2a";
+        });
+        darklogo.style.display = "none";
+        lightlogo.style.display = "block";
+        banner.style.backgroundColor = "#181b2a";
+        heading.style.color = "#f8f0dc";
+        paragraph.style.color = "#181b2a";
+        footer.style.backgroundColor = "#f8f0dc";
+        copyright.style.color = "#181b2a";
+      }
+    }
+  </script>
+</html>
